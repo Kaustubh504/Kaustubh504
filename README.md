@@ -5,7 +5,9 @@
   Ex-SDE @ Accenture &nbsp;·&nbsp; TA: Compiler Construction &nbsp;·&nbsp; ML Systems Researcher
 </p>
 
-
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=YOUR_USERNAME&style=flat-square&color=blueviolet" alt="profile views" />
+</p>
 
 ---
 
@@ -50,30 +52,16 @@
 
 ## 🧰 Tech Stack
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=spring-boot&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white)
+![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
 
-**Domains:** ML Systems · NLP · Kernel Dev · Genetic Algorithms · Q-Learning · LoRA · Computer Architecture
-
----
-
-## 📊 GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=default&hide_border=true" height="160"/>
-  &nbsp;
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&theme=default&hide_border=true" height="160"/>
-</p>
+**Domains:** ML Systems · Natural Language Processing · DBMS · Kernel Dev · Computer Networks · Compiler Design · Genetic Algorithms · Q-Learning · LoRA · Computer Architecture · Theory of Computation
 
 ---
-
-## 🎯 Currently Targeting
-
-Semiconductor & SDE roles at **Qualcomm · MediaTek · Intel · ARM · AMD · Micron**
 
 📫 **h20250119@goa.bits-pilani.ac.in** &nbsp;·&nbsp; 📱 8275722190
