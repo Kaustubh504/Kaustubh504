@@ -5,9 +5,6 @@
   Ex-SDE @ Accenture &nbsp;·&nbsp; TA: Compiler Construction &nbsp;·&nbsp; ML Systems Researcher
 </p>
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=Kaustubh504&style=flat-square&color=blueviolet" alt="profile views" />
-</p>
 
 ---
 
