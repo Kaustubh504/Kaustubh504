@@ -29,12 +29,14 @@
 - Designed **Partial Layer Freezing** (bottom 6/12 layers frozen) → +2.1% EN, +4.3% HI, +6.4% MR over LoRA baseline
 - Zero-shot transfer to unseen Spanish: F1 = **0.811 vs 0.733** (English-only), confirming cross-lingual generalization
 
-### Kernel-Level System Call & Scheduler Development — PintOS
-*Operating Systems — Aug 2025 – Oct 2025*
+### Kernel Scheduler & Synchronization Development — PintOS
+*Operating Systems — Jul 2026 – Present · [github.com/Kaustubh504/Priority_scheduluer](https://github.com/Kaustubh504/Priority_scheduluer)*
 
-- Extended PintOS kernel with **new system calls** (argument parsing, pointer validation, user–kernel memory isolation)
-- Designed and implemented a **custom scheduling policy** with priority computation and preemption logic
-- Managed interrupt disabling, locks, and semaphores to prevent race conditions and deadlocks
+- Replaced PintOS's default round-robin scheduler with a **priority-based scheduler**: sorted ready queue via `list_insert_ordered`, immediate preemption when a higher-priority thread becomes ready or the running thread's priority drops below what's waiting
+- Implemented **priority donation** to eliminate priority inversion, including transitive donation across nested/chained lock dependencies and correct reversion to the next-highest remaining donation (not straight to base) on lock release
+- Ensured thread-safe execution via interrupt-disabled critical sections, locks, and semaphores — including fixing semaphore wake order to release the highest-priority waiter instead of FIFO
+- Built a custom benchmark harness with measured results: **34.5% reduction** in priority-inversion wait latency (55→36 ticks) via donation, CPU-time fairness within **2%** across equal-priority threads, and **0%→94%** idle-capacity recovery by replacing a busy-wait timer implementation with proper blocking
+- Verified against PintOS's official test suite: 17/17 tests passing with exact assertion-level output matches
 
 ---
 
