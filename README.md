@@ -1,7 +1,7 @@
 <h1 align="center">Hi, I'm Kaustubh Dhananjay Das 👋</h1>
 
 <p align="center">
-  M.E. Computer Science @ BITS Pilani Goa &nbsp;·&nbsp; Graduating 2027 &nbsp;·&nbsp; CGPA 8.5<br>
+  M.E. Computer Science @ BITS Pilani Goa &nbsp;·&nbsp; Graduating 2027 &nbsp;·&nbsp; CGPA 8.44<br>
   Ex-SDE @ Accenture &nbsp;·&nbsp; TA: Compiler Construction &nbsp;·&nbsp; ML Systems Researcher
 </p>
 
