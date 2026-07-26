@@ -2,65 +2,79 @@
 
 <p align="center">
   M.E. Computer Science @ BITS Pilani Goa &nbsp;·&nbsp; Graduating 2027 &nbsp;·&nbsp; CGPA 8.44<br>
-  Ex-SDE @ Accenture &nbsp;·&nbsp; TA: Compiler Construction &nbsp;·&nbsp; ML Systems Researcher
+  Ex-SDE @ Accenture &nbsp;·&nbsp; Teaching Assistant: Operating Systems &nbsp;·&nbsp; Systems Researcher
 </p>
 
-
 ---
 
-## 🔬 Research
+## 🔬 Research & Projects
 
-### Accelerating DNN Hardware Mapping with Q-Learning Augmented GAMMA
-*Machine Learning Systems | Computer Architecture — Dec 2025 – Present*
+### Accelerating DNN Hardware Mapping with Q-Learning Augmented Genetic Algorithm (GAMMA)
+*Systems | Computer Architecture — Dec 2025 – Present*
 
-- Extended GAMMA with a **Q-Learning filter** to skip low-quality genome candidates during genetic search, reducing expensive MAESTRO cost model calls by up to **59% (ALBERT)** across 18 DNN architectures
-- Designed four-phase Q-tables (eval/crossover/growth/aging) with µ-greedy exploration and **guided mutation** that protects learned high-quality loop-order structures
-- Implemented **per-model auto-threshold calibration** from Gen-1 reward statistics, fixing NLP model incompatibility where reward ranges differ 100× from CNN baselines (BERT, ALBERT, T5)
-- Ran 450-experiment ablation sweep: **16.9% avg CPU reduction** overall, **45.8% for NLP models**, with 89% of models maintaining or improving solution quality
+- Extended GAMMA's genetic-algorithm search for configurable spatial DNN-accelerator hardware mapping (parametric PE array, on-chip L1/L2 buffers, NoC bandwidth) with a Q-learning-gated evaluation filter that learns to skip low-quality genome candidates before expensive MAESTRO cost-model calls
+- Designed the filter to preserve genetic algorithm's elitism guarantee: protects elite individuals from being skipped, tracks infeasibility separately, self-calibrates skip threshold relative to best reward per run
+- Validated with seeded A/B experiments across 12 named CNN backbones (ResNet18, ResNet50, VGG16, MobileNetV2, SqueezeNet, AlexNet, GoogLeNet, DenseNet, Wide-ResNet50, ResNeXt50, ShuffleNetV2, MNASNet) — matched or beat no-filter baseline in 21/30 (70%) while cutting MAESTRO cost-model calls by ~10% per search (~2,500 candidate mappings evaluated per run)
+- [github.com/Kaustubh504/Gamma_frequency](https://github.com/Kaustubh504/Gamma_frequency)
 
----
+### PintOS — Priority Scheduler with Donation
+*Operating Systems — Aug 2025 – Oct 2025 · [github.com/Kaustubh504/Priority_scheduluer](https://github.com/Kaustubh504/Priority_scheduluer)*
 
-## 🛠 Projects
+- Implemented preemptive priority scheduling with transitive priority donation to eliminate priority inversion in kernel scheduling, verified against PintOS's official test suite (17/17 passing)
+- Designed priority donation to correctly handle nested/chained lock dependencies, with interrupt-disabled critical sections and priority-ordered wake logic for locks and semaphores to prevent race conditions
+- Built a custom benchmarking harness and reduced priority-inversion wait latency by 34.5%, achieved CPU-time fairness within 2% across equal-priority threads, and improved CPU idle-capacity recovery from 0% to 94%
 
-### Multilingual NER using mBERT + LoRA Fine-Tuning
-*Natural Language Processing — Dec 2025 – Apr 2026*
+### Raft Leader Election
+*Distributed Systems — Oct 2025 – Nov 2025 · [GitHub Link]()*
 
-- Fine-tuned mBERT on WikiANN (EN/HI/MR) using LoRA, training only **0.33% of 177M parameters**, achieving F1: **0.819 / 0.844 / 0.814**
-- Designed **Partial Layer Freezing** (bottom 6/12 layers frozen) → +2.1% EN, +4.3% HI, +6.4% MR over LoRA baseline
-- Zero-shot transfer to unseen Spanish: F1 = **0.811 vs 0.733** (English-only), confirming cross-lingual generalization
-
-### Kernel Scheduler & Synchronization Development — PintOS
-*Operating Systems — Jul 2026 – Present · [github.com/Kaustubh504/Priority_scheduluer](https://github.com/Kaustubh504/Priority_scheduluer)*
-
-- Replaced PintOS's default round-robin scheduler with a **priority-based scheduler**: sorted ready queue via `list_insert_ordered`, immediate preemption when a higher-priority thread becomes ready or the running thread's priority drops below what's waiting
-- Implemented **priority donation** to eliminate priority inversion, including transitive donation across nested/chained lock dependencies and correct reversion to the next-highest remaining donation (not straight to base) on lock release
-- Ensured thread-safe execution via interrupt-disabled critical sections, locks, and semaphores — including fixing semaphore wake order to release the highest-priority waiter instead of FIFO
-- Built a custom benchmark harness with measured results: **34.5% reduction** in priority-inversion wait latency (55→36 ticks) via donation, CPU-time fairness within **2%** across equal-priority threads, and **0%→94%** idle-capacity recovery by replacing a busy-wait timer implementation with proper blocking
-- Verified against PintOS's official test suite: 17/17 tests passing with exact assertion-level output matches
+- Implemented the leader-election subset of the Raft consensus algorithm from scratch in C++17, coordinating a 5-node cluster
+- Designed randomized election timeouts and majority-quorum voting to guarantee at most one leader per term, with term numbers acting as a logical clock that demotes stale leaders after network partitions
+- Built a concurrent per-node runtime election-timer thread, per-connection RPC server, and concurrent vote/heartbeat fan-out to all peers synchronized via mutex-guarded term/role/vote state, plus a live HTTP status endpoint and browser dashboard for real-time cluster visualization
+- Measured leader-failover recovery across 30 independent trials via automated benchmark harness: 100% successful automatic recovery, median re-election latency of 1.8s, consistent with configured 1.5–3s randomized timeout window
 
 ---
 
 ## 💼 Work Experience
 
 **Packaged App Development Associate — Accenture** *(Sep 2023 – Aug 2025)*
-- Contributed across all SDLC phases with focus on testing: test planning, regression suites, defect tracking, post-deployment validation
-- Maintained automation frameworks via Git; mentored new team members on testing best practices
-- Collaborated with QA, Product Owners, and DevOps to define acceptance criteria and ensure quality delivery
+- Actively contributed across all SDLC phases with strong emphasis on testing: test planning, writing test cases, executing regression suites, defect tracking, and post-deployment validation
+- Maintained a clean and organized test codebase using Git, managing test scripts and automation frameworks to facilitate team collaboration
+- Collaborated with cross-functional teams (QA, Product Owners, DevOps) to define acceptance criteria and ensure delivery of high-quality solutions; mentored new team members on testing best practices
+
+---
+
+## 🎓 Education & Academics
+
+**M.E. Computer Science** — BITS Pilani Goa *(2027)* | CGPA: 8.44  
+**B.E. Computer Engineering** — Pimpri Chinchwad College of Engineering, Ravet *(2023)* | CGPA: 9.29
+
+**Coursework:** Operating System, Computer Architecture, Computer Networks, Compiler Design, Algorithms, Database Management System, Theory of Computations
+
+---
+
+## 👨‍🏫 Teaching & Leadership
+
+**Teaching Assistant — Operating Systems Course, BITS Pilani Goa** *(Aug 2025 – Dec 2025)*
+- Reviewed student OS lab assignments and provided technical feedback on scheduling, synchronization, and kernel design principles
+
+**Member — ASCII BITS Goa** *(Aug 2025 – Present)*
+- Serve as liaison between department and computer science student community
 
 ---
 
 ## 🧰 Tech Stack
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white)
 ![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Java](https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![CMake](https://img.shields.io/badge/CMake-064F8C?style=flat-square&logo=cmake&logoColor=white)
+![GDB](https://img.shields.io/badge/GDB-4B8BBE?style=flat-square&logoColor=white)
 
-**Domains:** ML Systems · Natural Language Processing · DBMS · Kernel Dev · Computer Networks · Compiler Design · Genetic Algorithms · Q-Learning · LoRA · Computer Architecture · Theory of Computation
+**Domains:** Systems Optimization · Operating Systems · Kernel Development · Real-time Scheduling · Distributed Consensus · Hardware-Software Co-design · Computer Architecture · Genetic Algorithms · Data Structures
 
 ---
 
-📫 **daskaustubh504@gmail.com** &nbsp;·&nbsp; 📱 9284499227
+📧 **h20250119@goa.bits-pilani.ac.in** &nbsp;·&nbsp; 📱 8275722190
